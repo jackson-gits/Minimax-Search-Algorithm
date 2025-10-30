@@ -1,6 +1,10 @@
-<h1>ExpNo 5 : Implement Minimax Search Algorithm for a Simple TIC-TAC-TOE game</h1> 
-<h3>Name:           </h3>
-<h3>Register Number/Staff Id:          </h3>
+<h1>ExpNo 6 : Implement Minimax Search Algorithm for a Simple TIC-TAC-TOE game</h1> 
+
+```
+Name         : Jackson Raj
+Register No. : 212223040071
+```
+
 <H3>Aim:</H3>
 <p>
     Implement Minimax Search Algorithm for a Simple TIC-TAC-TOE game
@@ -102,6 +106,30 @@ def minimax(game)
     end
 end
 
+
+## Code: 
+```
+def minimax(depth, isMax, scores, index, maxDepth):
+    if depth == maxDepth:
+        return scores[index]
+
+    if isMax:
+        left = minimax(depth + 1, False, scores, index * 2, maxDepth)
+        right = minimax(depth + 1, False, scores, index * 2 + 1, maxDepth)
+        return max(left, right)
+    else:
+        left = minimax(depth + 1, True, scores, index * 2, maxDepth)
+        right = minimax(depth + 1, True, scores, index * 2 + 1, maxDepth)
+        return min(left, right)
+
+
+scores = list(map(int, input("Enter leaf node values separated by space: ").split()))
+maxDepth = int(input("Enter the tree depth: "))
+
+result = minimax(0, True, scores, 0, maxDepth)
+print("Optimal value:", result)
+
+```
 <hr>
 <h2>Sample Input and Output</h2>
 
@@ -110,6 +138,9 @@ end
 ![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/dc06427a-d4ce-43a1-95bd-9acfaefac323)
 ![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a8a27e2a-6fd4-46a2-afb5-6d27b8556702)
 ![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a2acb6a1-ed8e-42e5-8968-fe805e4b0255)
+<img width="997" height="226" alt="output" src="https://github.com/user-attachments/assets/3257c584-9b4c-4593-9748-e46d3094ba32" />
+<img width="1680" height="1050" alt="code" src="https://github.com/user-attachments/assets/098dd206-5458-4a91-b94e-e3bfe1e62bbd" />
+
 
 <hr>
 <h2>Result:</h2>
